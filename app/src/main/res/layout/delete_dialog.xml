@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/delete_dialog"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/imageViewDeleteIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:contentDescription="@string/delete_dialog_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ic_delete" />
+
+        <TextView
+            android:id="@+id/textViewDeleteNote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/delete_note_dialog_title"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewDeleteIcon" />
+
+    <TextView
+        android:id="@+id/textViewDeleteNoteWarning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:lines="2"
+        android:text="@string/delete_note_dialog_warning_text"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewDeleteNote" />
+
+
+        <Button
+            android:id="@+id/buttonCancelDeletion"
+            style="@style/Widget.Material3.Button.TextButton.Dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            android:text="@string/delete_dialig_cancel_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/buttonApproveDeletingNote"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewDeleteNoteWarning" />
+
+        <Button
+            android:id="@+id/buttonApproveDeletingNote"
+            style="@style/Widget.Material3.Button.TextButton.Dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            android:text="@string/delete_dialog_approve_deleting"
+            android:textColor="#E91E63"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/buttonCancelDeletion"
+            app:layout_constraintTop_toBottomOf="@id/textViewDeleteNoteWarning" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

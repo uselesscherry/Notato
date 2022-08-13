@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="DeleteDialog"
+        parent="Theme.Material3.Dark.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/rounded_corners</item>
+    </style>
+</resources>

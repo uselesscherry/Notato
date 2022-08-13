@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Notato</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="editTextNoteEnterTitleHint">enter title:</string>
+    <string name="editTextNoteEnterContentHint">enter content:</string>
+    <string name="save_note_content_description">save note</string>
+    <string name="add_note_content_description">add note</string>
+    <string name="delete_icon_show_dialog">delete Icon Show Dialog</string>
+    <string name="delete_note_dialog_title">Delete note?</string>
+    <string name="delete_note_dialog_warning_text">Are you sure you want to delete this note?\nThere is no way to restore it.</string>
+    <string name="delete_dialig_cancel_button">Cancel</string>
+    <string name="delete_dialog_approve_deleting">Delete</string>
+    <string name="delete_dialog_icon">delete dialog icon</string>
+</resources>
