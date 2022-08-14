@@ -86,7 +86,7 @@ Also implemented `Custom Dialog` with custom layout
 ```
 ### Custom DeleteDialog with custom style(for more rounded corners):
 
-<img align="right" width="400" src="screenshots/customDeleteDialog.png"/>
+<img align="right" width="300" src="screenshots/customDeleteDialog.png"/>
 
 ``` kotlin
 
