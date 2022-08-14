@@ -4,7 +4,10 @@ This app helps you to save your thoughts using **Room**. The goal of Notato is t
 showcase inserting data loading it from Room DB, implementing **DI**, using **RecyclerView** in a **Fragment** and async programming with *Coroutines* and **StateFlow**.
 Also implemented `Custom Dialog` with custom layout
 
-### [`Compose Version`](https://github.com/uselesscherry/Compose_Notes) of This app
+### Also I have a [`Compose Version`](https://github.com/uselesscherry/Compose_Notes) of This app
+
+## Screenshots
+<img src="screenshots/Notato-preview.png"/>
 
 ### What I used in this project:
 
@@ -41,7 +44,6 @@ Also implemented `Custom Dialog` with custom layout
             }
         }
     }
-    
 ```
 
 ### Custom Exception:
@@ -81,4 +83,38 @@ Also implemented `Custom Dialog` with custom layout
         }
     }
     
+```
+### Custom DeleteDialog with custom style(for more rounded corners):
+
+<img align="right" width="400" src="screenshots/customDeleteDialog.png"/>
+
+``` kotlin
+
+    class DeleteDialog(
+    context: Context,
+    private val onDeleteApproved: () -> Unit
+) : Dialog(context, R.style.DeleteDialog) {
+
+    private lateinit var binding: DeleteDialogBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = DeleteDialogBinding.inflate(layoutInflater)
+        setupListeners()
+        requestWindowFeature(Window.FEATURE_NO_TITLE)
+        setCancelable(true)
+        setContentView(binding.root)
+    }
+
+    private fun setupListeners() {
+        binding.buttonApproveDeletingNote.setOnClickListener {
+            onDeleteApproved()
+            dismiss()
+        }
+        binding.buttonCancelDeletion.setOnClickListener {
+            dismiss()
+        }
+    }
+}
+
 ```
