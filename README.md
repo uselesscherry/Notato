@@ -23,27 +23,28 @@ Also implemented `Custom Dialog` with custom layout
 ### Getting data from DB and observing it in Fragment:
 
 ``` kotlin
-    private val _notes = MutableStateFlow<List<Note>>(emptyList())
-    val notes: StateFlow<List<Note>> = _notes
     
-    //loads data from db
-    repository.getNotes().onEach { notes ->
-            withContext(Dispatchers.IO) {
-                _notes.value = notes
-            }
-        }.launchIn(viewModelScope)
+private val _notes = MutableStateFlow<List<Note>>(emptyList())
+val notes: StateFlow<List<Note>> = _notes
+    
+//loads data from db
+repository.getNotes().onEach { notes ->
+       withContext(Dispatchers.IO) {
+            _notes.value = notes
+        }
+    }.launchIn(viewModelScope)
         
-    //observing data in Fragment
-     private fun setupNoteListAdapter() {
-        lifecycleScope.launchWhenStarted {
-            viewModel.notes.collect { notes ->
-                noteListAdapter = NoteListAdapter(
-                    notes = notes
-                )
-                binding.noteListRecyclerView.adapter = noteListAdapter
-            }
+//observing data in Fragment
+private fun setupNoteListAdapter() {
+    lifecycleScope.launchWhenStarted {
+       viewModel.notes.collect { notes ->
+           noteListAdapter = NoteListAdapter(
+               notes = notes
+            )
+            binding.noteListRecyclerView.adapter = noteListAdapter
         }
     }
+}
 ```
 
 ### Custom Exception:
