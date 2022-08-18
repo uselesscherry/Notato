@@ -22,8 +22,7 @@ Also implemented `Custom Dialog` with custom layout
 
 ### Getting data from DB and observing it in Fragment:
 
-``` kotlin
-    
+``` kotlin 
 private val _notes = MutableStateFlow<List<Note>>(emptyList())
 val notes: StateFlow<List<Note>> = _notes
     
@@ -90,7 +89,7 @@ private fun setViewsUp() {
 <img align="right" width="300" src="screenshots/customDeleteDialog.png"/>
 
 ``` kotlin
-    class DeleteDialog(
+class DeleteDialog(
     context: Context,
     private val onDeleteApproved: () -> Unit
 ) : Dialog(context, R.style.DeleteDialog) {
