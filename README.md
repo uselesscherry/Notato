@@ -49,8 +49,7 @@ private fun setupNoteListAdapter() {
 
 ### Custom Exception:
 
-``` kotlin
-     
+``` kotlin   
 class EmptyFieldsException(message: String) : Exception(message)
      
 @Throws(EmptyFieldsException::class)
@@ -91,7 +90,6 @@ private fun setViewsUp() {
 <img align="right" width="300" src="screenshots/customDeleteDialog.png"/>
 
 ``` kotlin
-
     class DeleteDialog(
     context: Context,
     private val onDeleteApproved: () -> Unit
