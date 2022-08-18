@@ -78,7 +78,9 @@ private fun setViewsUp() {
              )
              navigateUp()
          } catch (e: NoteViewModel.EmptyFieldsException) {
-             Toast.makeText(context, "You need to enter note's title and content", Toast.LENGTH_SHORT).show()
+             Toast
+             .makeText(context, "You need to enter note's title and content", Toast.LENGTH_SHORT)
+             .show()
         }
     }
 }
