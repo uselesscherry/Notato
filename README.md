@@ -50,39 +50,40 @@ private fun setupNoteListAdapter() {
 ### Custom Exception:
 
 ``` kotlin
-     class EmptyFieldsException(message: String) : Exception(message)
      
-    @Throws(EmptyFieldsException::class)
-    fun insertNote(
-        title: String,
-        content: String
-    ) {
-        when {
-            title.isBlank() || content.isBlank() -> {
-                throw EmptyFieldsException(message = "empty content or title")
+class EmptyFieldsException(message: String) : Exception(message)
+     
+@Throws(EmptyFieldsException::class)
+fun insertNote(
+     title: String,
+     content: String
+  ) {
+     when {
+         title.isBlank() || content.isBlank() -> {
+             throw EmptyFieldsException(message = "empty content or title")
+         }
+         title.isNotEmpty() && content.isNotEmpty() -> {
+             viewModelScope.launch(Dispatchers.IO) {
+                 repository.insert( Note(title, content.trim()) )
             }
-            title.isNotEmpty() && content.isNotEmpty() -> {
-                viewModelScope.launch(Dispatchers.IO) {
-                    repository.insert( Note(title, content.trim()) )
-                }
-            }
-        }
-    }
+         }
+      }
+   }
     
-    //Fragment method 
-    private fun setViewsUp() {
-        binding.saveNoteButton.setOnClickListener {
-            try {
-                viewModel.insertNote(
-                    title = binding.editTextNoteTitle.text.toString(),
-                    content = binding.editTextNoteContent.text.toString()
-                )
-                navigateUp()
-            } catch (e: NoteViewModel.EmptyFieldsException) {
-                Toast.makeText(context, "You need to enter note's title and content", Toast.LENGTH_SHORT).show()
-            }
+//Fragment method 
+private fun setViewsUp() {
+     binding.saveNoteButton.setOnClickListener {
+         try {
+             viewModel.insertNote(
+                 title = binding.editTextNoteTitle.text.toString(),
+                 content = binding.editTextNoteContent.text.toString()
+             )
+             navigateUp()
+         } catch (e: NoteViewModel.EmptyFieldsException) {
+             Toast.makeText(context, "You need to enter note's title and content", Toast.LENGTH_SHORT).show()
         }
     }
+}
     
 ```
 ### Custom DeleteDialog with custom style(for more rounded corners):
